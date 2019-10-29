@@ -13,4 +13,8 @@ export class ServerService {
   getUsers(){
     return this.http.get('http://localhost:5002/Users', {responseType: 'json'});
   }
+
+  createUser(user){
+    return this.http.post('http://localhost:5002/Users', user, {responseType: 'json'});
+  }
 }
