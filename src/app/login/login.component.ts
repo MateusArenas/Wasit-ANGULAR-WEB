@@ -9,7 +9,7 @@ import { ServerService } from '../server.service';
 })
 export class LoginComponent implements OnInit {
   id: string|null = null;
-  users: object|null = [];
+  users: object[]|null = null;
 
   constructor(private service: ServerService) { 
 
@@ -25,13 +25,13 @@ export class LoginComponent implements OnInit {
       SquadId: 1,
       UserName: "veloko"
     };
+
     this.service.createUser(user).toPromise()
-    .then((data) => {
-      console.log('data', data);
+    .then(() => {
       return this.service.getUsers().toPromise();
     })
     .then((data) => {
-      this.users = data['1'];
+      this.users = [...data.value];
     });
 
   }

@@ -1,2 +1,7 @@
 <p>{{ id }}</p>
-{{ users['Name'] }}
+
+<ul>
+    <li *ngFor=" let user of users">
+        {{user.Name}}
+    </li>
+</ul>
